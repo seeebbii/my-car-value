@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './users/user.entity';
+import { Report } from './reports/report.entity';
 
 @Module({
   imports: [
@@ -11,7 +13,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       type: 'sqlite',
       database: 'db.sqlite',
       entities: [
-        
+        //! __dirname + '/**/*.entity{.ts,.js}', // Look for entities in the src directory and its subdirectories 
+        User,
+        Report,
       ],
       synchronize: true,
     }),
